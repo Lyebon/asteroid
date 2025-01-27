@@ -5,6 +5,9 @@ from constants import *
 class Player(CircleShape):
     def __init__(self, x, y):
         super().__init__(PLAYER_RADIUS, x, y)
+        if hasattr(self.__class__, "containers"):
+            for group in self.__class__.containers:
+                group.add(self)
         self.rotation = 0
         
 
